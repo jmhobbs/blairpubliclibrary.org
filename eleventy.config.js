@@ -42,6 +42,6 @@ export default function(eleventyConfig) {
   });
 
   eleventyConfig.addFilter("splitParagraphs", function(value) {
-    return value.split("\n").filter((p) => p.trim() !== '');
+    return (value || '').split("\n").filter((p) => p.trim() !== '');
   });
 };
