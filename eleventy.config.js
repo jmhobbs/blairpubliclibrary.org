@@ -4,6 +4,8 @@ import browserslist from 'browserslist'
 import { transform, browserslistToTargets } from 'lightningcss'
 
 export default function(eleventyConfig) {
+  eleventyConfig.addPassthroughCopy("favicon.ico");
+
   eleventyConfig.addTemplateFormats("scss");
 
   // From https://11ty.rocks/posts/process-css-with-lightningcss/
