@@ -5,6 +5,7 @@ import { transform, browserslistToTargets } from 'lightningcss'
 
 export default function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("favicon.ico");
+  eleventyConfig.addPassthroughCopy("robots.txt");
   eleventyConfig.addPassthroughCopy("static/script.js");
 
   eleventyConfig.addTemplateFormats("scss");
