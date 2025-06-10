@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "npx @11ty/eleventy --serve"
+    "dev": "npx @11ty/eleventy --serve",
+    "lint": "npx eslint . --ext .js,.css,.json,.md"
   },
   "keywords": [],
   "author": "",
@@ -12,7 +13,13 @@
   "devDependencies": {
     "@11ty/eleventy": "^3.1.1",
     "@11ty/eleventy-fetch": "^5.1.0",
+    "@eslint/css": "^0.8.1",
+    "@eslint/js": "^9.28.0",
+    "@eslint/json": "^0.12.0",
+    "@eslint/markdown": "^6.5.0",
     "browserslist": "^4.25.0",
+    "eslint": "^9.28.0",
+    "globals": "^16.2.0",
     "googleapis": "^150.0.1",
     "lightningcss": "^1.30.1",
     "moment-timezone": "^0.6.0",
