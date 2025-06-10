@@ -1,8 +1,12 @@
 * {
-  font-family: ui-rounded, 'Hiragino Maru Gothic ProN', Quicksand, Comfortaa, Manjari, 'Arial Rounded MT', 'Arial Rounded MT Bold', Calibri, source-sans-pro, sans-serif;
+  font-family:
+    ui-rounded, 'Hiragino Maru Gothic ProN', Quicksand, Comfortaa, Manjari,
+    'Arial Rounded MT', 'Arial Rounded MT Bold', Calibri, source-sans-pro,
+    sans-serif;
   font-optical-sizing: auto;
 }
-html,body {
+html,
+body {
   margin: 0;
   padding: 0;
   font-style: normal;
@@ -22,7 +26,7 @@ main {
   margin: auto;
 }
 header {
-  background-color: rgb(208,205,215);
+  background-color: rgb(208, 205, 215);
   color: #222;
   padding: 10px 0;
   text-align: center;
@@ -32,21 +36,21 @@ header ul {
   list-style: none;
 }
 footer {
-  background-color: rgb(208,205,215);
+  background-color: rgb(208, 205, 215);
   color: #222;
   padding: 20px 0;
   box-shadow: 0 0px 10px #3232324f;
 }
 .event {
-  background-color: #F2F2F2;
-  border: 1px solid #0B3948;
+  background-color: #f2f2f2;
+  border: 1px solid #0b3948;
   padding: 15px;
   margin: 10px 0;
   border-radius: 10px;
 }
 
 .day h3 {
-  border-bottom: 2px solid #0B3948;
+  border-bottom: 2px solid #0b3948;
 }
 
 .event h4 {
@@ -90,11 +94,13 @@ nav {
         border-radius: 10px;
         margin-bottom: 10px;
 
-        &:visited, &:active {
+        &:visited,
+        &:active {
           color: white;
         }
 
-        &:hover, &:focus {
+        &:hover,
+        &:focus {
           background-color: white;
           color: #480b44;
         }
@@ -106,9 +112,9 @@ nav {
 input {
   width: 100%;
   font-size: 1.15em;
-  padding: .5em;
+  padding: 0.5em;
   border-radius: 10px;
-  border: 1px solid #CCC;
+  border: 1px solid #ccc;
 }
 
 .hidden {

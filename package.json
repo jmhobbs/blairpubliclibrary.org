@@ -4,6 +4,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "npx @11ty/eleventy --serve",
+    "format": "npx prettier --write .",
     "lint": "npx eslint . --ext .js,.css,.json,.md"
   },
   "keywords": [],
@@ -19,10 +20,12 @@
     "@eslint/markdown": "^6.5.0",
     "browserslist": "^4.25.0",
     "eslint": "^9.28.0",
+    "eslint-config-prettier": "^10.1.5",
     "globals": "^16.2.0",
     "googleapis": "^150.0.1",
     "lightningcss": "^1.30.1",
     "moment-timezone": "^0.6.0",
+    "prettier": "3.5.3",
     "sass": "^1.89.1"
   },
   "type": "module"
