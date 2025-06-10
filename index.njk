@@ -5,11 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Events at the Blair Public Library in Blair, Nebraska.">
     <title>Blair Public Library</title>
-    <link rel="preload" href="/static/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="/static/style.css"></noscript>
-    {% set css %} {% include "static/critical.css" %} {% endset %}
-    <style>{{ css | cssmin | safe }}</style>
-    <script src="/static/script.js" defer></script>
+    {% set style %} {% include "style.scss" %} {% endset %}<style>{{ style | sassmin | safe }}</style>
+    <script src="/script.js" defer></script>
   </head>
   <body>
     <header>

@@ -1,3 +1,50 @@
+* {
+  font-family: ui-rounded, 'Hiragino Maru Gothic ProN', Quicksand, Comfortaa, Manjari, 'Arial Rounded MT', 'Arial Rounded MT Bold', Calibri, source-sans-pro, sans-serif;
+  font-optical-sizing: auto;
+}
+html,body {
+  margin: 0;
+  padding: 0;
+  font-style: normal;
+}
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+main {
+  flex: 1;
+  padding: 20px 0;
+}
+.container {
+  width: 90%;
+  max-width: 800px;
+  margin: auto;
+}
+header {
+  background-color: rgb(208,205,215);
+  color: #222;
+  padding: 10px 0;
+  text-align: center;
+  box-shadow: 0 0px 10px #3232324f;
+}
+header ul {
+  list-style: none;
+}
+footer {
+  background-color: rgb(208,205,215);
+  color: #222;
+  padding: 20px 0;
+  box-shadow: 0 0px 10px #3232324f;
+}
+.event {
+  background-color: #F2F2F2;
+  border: 1px solid #0B3948;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 10px;
+}
+
 .day h3 {
   border-bottom: 2px solid #0B3948;
 }
