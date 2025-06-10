@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Poiret+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="static/style.css">
+    <script src="static/script.js" defer></script>
   </head>
   <body>
     <header>
@@ -58,33 +59,5 @@
         </p>
       </div>
     </footer>
-    <script>
-      document.querySelector('input[type="search"]').addEventListener('input', function(event) {
-        const filter = event.target.value.toLowerCase();
-        const events = document.querySelectorAll('.event');
-        events.forEach(event => {
-          if (event.innerText.toLowerCase().includes(filter)) {
-            event.classList.remove('hidden');
-          } else {
-            event.classList.add('hidden');
-          }
-        });
-        const days = document.querySelectorAll('.day');
-        days.forEach(day => {
-          if (day.querySelector('.event:not(.hidden)')) {
-            day.classList.remove('hidden');
-          } else {
-            day.classList.add('hidden');
-          }
-        });
-        if(document.querySelector('.day:not(.hidden)')) {
-          console.log("Events found");
-          document.getElementById('no-events').classList.add('hidden');
-        } else {
-          console.log("No events found");
-          document.getElementById('no-events').classList.remove('hidden');
-        }
-      });
-    </script>
   </body>
 </html>
