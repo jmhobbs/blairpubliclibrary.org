@@ -3,10 +3,25 @@ import path from 'node:path';
 import browserslist from 'browserslist'
 import { transform, browserslistToTargets } from 'lightningcss'
 
+const targets = browserslistToTargets(browserslist("> 0.2% and not dead"));
+
 export default function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("favicon.ico");
   eleventyConfig.addPassthroughCopy("robots.txt");
   eleventyConfig.addPassthroughCopy("static/script.js");
+
+  eleventyConfig.addFilter("splitParagraphs", function(value) {
+    return (value || '').split("\n").filter((p) => p.trim() !== '');
+  });
+
+  eleventyConfig.addFilter("cssmin", function (code) {
+    return transform({
+      code: Buffer.from(code),
+      minify: true,
+      sourceMap: false,
+      targets,
+    }).code;
+  });
 
   eleventyConfig.addTemplateFormats("scss");
 
@@ -30,7 +45,6 @@ export default function(eleventyConfig) {
       // trigger rebuilds when using --incremental
       this.addDependencies(inputPath, result.loadedUrls);
 
-      let targets = browserslistToTargets(browserslist("> 0.2% and not dead"));
 
       return async () => {
         return transform({
@@ -41,9 +55,5 @@ export default function(eleventyConfig) {
         }).code;
       };
     },
-  });
-
-  eleventyConfig.addFilter("splitParagraphs", function(value) {
-    return (value || '').split("\n").filter((p) => p.trim() !== '');
   });
 };

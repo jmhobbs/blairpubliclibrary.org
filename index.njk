@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Events at the Blair Public Library in Blair, Nebraska.">
     <title>Blair Public Library</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Poiret+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="static/style.css">
-    <script src="static/script.js" defer></script>
+    <link rel="preload" href="/static/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/static/style.css"></noscript>
+    {% set css %} {% include "static/critical.css" %} {% endset %}
+    <style>{{ css | cssmin | safe }}</style>
+    <script src="/static/script.js" defer></script>
   </head>
   <body>
     <header>
@@ -18,7 +18,7 @@
         <nav>
           <ul>
             <li><a href="https://blair.biblionix.com/catalog/">Library Catalog</a></li>
-            <li><a href="tel:+14024263617">Call the Library: 402-426-3617</a></li>
+            <li><a href="tel:+14024263617">Call the Library</a></li>
             <li><a href="https://calendar.google.com/calendar/embed?src=c_eded8890603100e466b60a42ff6829f8cf8818e54a80d98b6ef9d02e632d70f8%40group.calendar.google.com&ctz=America%2FChicago">View As A Calendar</a></li>
             <li><a href="https://calendar.google.com/calendar/embed?src=c_eded8890603100e466b60a42ff6829f8cf8818e54a80d98b6ef9d02e632d70f8%40group.calendar.google.com&ctz=America%2FChicago">Download iCal File</a></li>
           </ul>
