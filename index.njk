@@ -28,6 +28,7 @@
       <div class="container">
         <h2>Events</h2>
         <p>You may Register for the events in person at the front desk or by calling <a href="tel:+14024263617">402-426-3617</a></p>
+        <input type="search" placeholder="Filter events..." />
         {% for date, dayEvents in events | groupby('date') %}
         <div class="day">
           <h3>{{ date }}</h3>
@@ -42,6 +43,7 @@
           {% endfor %}
         </div>
         {% endfor %}
+        <p class="hidden" id="no-events">No events found.</p>
       </div>
     </main>
     <footer>
@@ -50,5 +52,33 @@
         <p>This website is not affiliated with the Blair Public Library.</p>
       </div>
     </footer>
+    <script>
+      document.querySelector('input[type="search"]').addEventListener('input', function(event) {
+        const filter = event.target.value.toLowerCase();
+        const events = document.querySelectorAll('.event');
+        events.forEach(event => {
+          if (event.innerText.toLowerCase().includes(filter)) {
+            event.classList.remove('hidden');
+          } else {
+            event.classList.add('hidden');
+          }
+        });
+        const days = document.querySelectorAll('.day');
+        days.forEach(day => {
+          if (day.querySelector('.event:not(.hidden)')) {
+            day.classList.remove('hidden');
+          } else {
+            day.classList.add('hidden');
+          }
+        });
+        if(document.querySelector('.day:not(.hidden)')) {
+          console.log("Events found");
+          document.getElementById('no-events').classList.add('hidden');
+        } else {
+          console.log("No events found");
+          document.getElementById('no-events').classList.remove('hidden');
+        }
+      });
+    </script>
   </body>
 </html>

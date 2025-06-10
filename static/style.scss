@@ -112,3 +112,21 @@ nav {
     }
   }
 }
+
+input {
+  width: 100%;
+  font-size: 1.15em;
+  padding: .5em;
+  border-radius: 10px;
+  border: 1px solid #CCC;
+}
+
+.hidden {
+  display: none;
+}
+
+#no-events {
+  text-align: center;
+  padding: 10px;
+  font-size: 1.2em;
+}
