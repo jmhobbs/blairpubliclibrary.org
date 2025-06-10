@@ -15,7 +15,7 @@
     "browserslist": "^4.25.0",
     "googleapis": "^150.0.1",
     "lightningcss": "^1.30.1",
-    "moment": "^2.30.1",
+    "moment-timezone": "^0.6.0",
     "sass": "^1.89.1"
   },
   "type": "module"
