@@ -34,9 +34,13 @@
           {% for event in dayEvents %}
           <div class="event">
             <h4>{{ event.title }}</h4>
-            {% if not event.allDay %}
-            <small>{{ event.time }}</small>
-            {% endif %}
+            <small>
+              {% if event.allDay %}
+                {{ event.date }}
+              {% else %}
+                {{ event.time }}
+              {% endif %}
+            </small>
             {% for paragraph in event.description | splitParagraphs %}
             <p>{{ paragraph }}</p>
             {% endfor %}

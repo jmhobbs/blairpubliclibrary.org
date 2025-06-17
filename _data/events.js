@@ -22,11 +22,18 @@ export default function () {
       });
 
       return res.data.items.map((event) => {
-        const start = moment(event.start.dateTime || event.start.date).tz('America/Chicago');
-        const end = moment(event.end.dateTime || event.end.date).tz('America/Chicago');
+        const allDay = event.start.date != undefined;
+        let start, end;
+        if(allDay) {
+          start = moment(event.start.date);
+          end = moment(event.end.date);
+        } else {
+          start = moment(event.start.dateTime).tz('America/Chicago');
+          end = moment(event.end.dateTime).tz('America/Chicago');
+        }
 
         return {
-          allDay: event.start.date != undefined,
+          allDay,
           date: start.format('dddd, MMMM Do'),
           time: `${start.format('h:mm a')} - ${end.format('h:mm a')}`,
           title: event.summary,
