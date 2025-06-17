@@ -26,6 +26,7 @@ export default function () {
         const end = moment(event.end.dateTime || event.end.date).tz('America/Chicago');
 
         return {
+          allDay: event.start.date != undefined,
           date: start.format('dddd, MMMM Do'),
           time: `${start.format('h:mm a')} - ${end.format('h:mm a')}`,
           title: event.summary,
