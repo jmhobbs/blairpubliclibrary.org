@@ -1,6 +1,6 @@
 import Fetch from '@11ty/eleventy-fetch';
 import { google } from 'googleapis';
-import moment from 'moment';
+import moment from 'moment-timezone';
 
 export default function () {
   return Fetch(
@@ -10,26 +10,24 @@ export default function () {
         auth: process.env.GOOGLE_CALENDAR_API_KEY,
       });
 
-      const timeMin = new Date();
-      const timeMax = new Date();
-      timeMax.setDate(timeMin.getDate() + 60);
+      const now = moment().tz('America/Chicago');
 
       const res = await calendar.events.list({
         calendarId: process.env.GOOGLE_CALENDAR_ID,
-        timeMin: timeMin.toISOString(),
-        timeMax: timeMax.toISOString(),
+        timeMin: now.startOf('day').toISOString(),
+        timeMax: now.add(1, 'M').endOf('month').toISOString(),
         maxResults: 100,
         singleEvents: true,
         orderBy: 'startTime',
       });
 
       return res.data.items.map((event) => {
-        const start = moment(event.start.dateTime || event.start.date);
-        const end = moment(event.end.dateTime || event.end.date);
+        const start = moment(event.start.dateTime || event.start.date).tz('America/Chicago');
+        const end = moment(event.end.dateTime || event.end.date).tz('America/Chicago');
 
         return {
           date: start.format('dddd, MMMM Do'),
-          time: `${start.format('h:mm')} - ${end.format('h:mm a')}`,
+          time: `${start.format('h:mm a')} - ${end.format('h:mm a')}`,
           title: event.summary,
           description: event.description,
         };
