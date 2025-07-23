@@ -31,31 +31,44 @@ header {
   padding: 10px 0;
   text-align: center;
   box-shadow: 0 0px 10px #3232324f;
+  ul {
+    list-style: none;
+  }
 }
-header ul {
-  list-style: none;
-}
+
 footer {
   background-color: rgb(208, 205, 215);
   color: #222;
   padding: 20px 0;
   box-shadow: 0 0px 10px #3232324f;
 }
+
+.notice {
+  background-color: #ffaaaa;
+  border: 1px solid #440000;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 10px;
+  h4 {
+    margin: 0;
+    font-size: 1.15em;
+  }
+}
+
 .event {
   background-color: #f2f2f2;
   border: 1px solid #0b3948;
   padding: 15px;
   margin: 10px 0;
   border-radius: 10px;
+  h4 {
+    margin: 0;
+    font-size: 1.15em;
+  }
 }
 
 .day h3 {
   border-bottom: 2px solid #0b3948;
-}
-
-.event h4 {
-  margin: 0;
-  font-size: 1.15em;
 }
 
 h1 {
@@ -125,4 +138,8 @@ input {
   text-align: center;
   padding: 10px;
   font-size: 1.2em;
+}
+
+aside {
+  font-size: 0.8em;
 }

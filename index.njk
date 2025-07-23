@@ -25,8 +25,12 @@
     </header>
     <main>
       <div class="container">
+        <div class="notice">
+          <h4>Notice!</h4>
+          <p>The Blair Public Library will be taking a break from regular programming from July 21st through September 2nd.</p>
+        </div>
         <h2>Events</h2>
-        <p>You may Register for the events in person at the front desk or by calling <a href="tel:+14024263617">402-426-3617</a></p>
+        <aside>You may Register for the events in person at the front desk or by calling <a href="tel:+14024263617">402-426-3617</a></aside>
         <input type="search" placeholder="Filter events..." />
         {% for date, dayEvents in events | groupby('date') %}
         <div class="day">
