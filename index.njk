@@ -41,7 +41,7 @@
                 {{ event.time }}
               {% endif %}
             </small>
-            {% for paragraph in event.description | splitParagraphs %}
+            {% for paragraph in event.description | stripHTML | splitParagraphs %}
             <p>{{ paragraph }}</p>
             {% endfor %}
           </div>

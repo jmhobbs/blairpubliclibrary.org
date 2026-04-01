@@ -9,6 +9,22 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('robots.txt');
   eleventyConfig.addPassthroughCopy('script.js');
 
+  // not trying to catch everything, just what tends to sneak into Google Calendar
+  eleventyConfig.addFilter('stripHTML', function (value) {
+    return (value || '').
+      replaceAll('<p>', '').
+      replaceAll('</p>', '\n').
+      replaceAll(/<br ?\/?>/g, '\n').
+      replaceAll('<b>', '').
+      replaceAll('</b>', '').
+      replaceAll('<strong>', '').
+      replaceAll('</strong>', '').
+      replaceAll('<em>', '').
+      replaceAll('</em>', '').
+      replaceAll('<i>', '').
+      replaceAll('</i>', '');
+  });
+
   eleventyConfig.addFilter('splitParagraphs', function (value) {
     return (value || '').split('\n').filter((p) => p.trim() !== '');
   });
