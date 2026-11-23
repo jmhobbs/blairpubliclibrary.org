@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "npx @11ty/eleventy --serve",
     "format": "npx prettier --write .",
-    "lint": "npx eslint . --ext .js,.css,.json,.md"
+    "lint": "npx eslint . --ext .js,.css,.json,.md",
+    "test": "node --test"
   },
   "keywords": [],
   "author": "",

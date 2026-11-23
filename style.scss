@@ -131,6 +131,53 @@ input[type='search'] {
   }
 }
 
+.age-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+
+  button {
+    font: inherit;
+    font-size: 0.95rem;
+    cursor: pointer;
+    color: var(--brand);
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    transition: background-color 0.15s;
+
+    &:hover {
+      background: var(--brand-soft);
+    }
+    &[aria-pressed='true'] {
+      color: #fff;
+      border-color: var(--brand);
+      background: var(--brand);
+    }
+  }
+}
+
+.registration {
+  display: inline-block;
+  vertical-align: 0.15em;
+  margin-left: 0.25rem;
+  padding: 0.05rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.registration-required {
+  color: #fff;
+  background: var(--accent);
+}
+.registration-recommended {
+  color: var(--accent);
+  border: 1px solid var(--accent);
+}
+
 .day {
   margin-top: 2rem;
 
