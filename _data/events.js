@@ -1,9 +1,10 @@
 import Fetch from '@11ty/eleventy-fetch';
 import { google } from 'googleapis';
 import moment from 'moment-timezone';
+import { parseAgeRange, parseRegistration } from '../lib/eventMetadata.js';
 
-export default function () {
-  return Fetch(
+export default async function () {
+  const events = await Fetch(
     async function () {
       const calendar = google.calendar({
         version: 'v3',
@@ -46,4 +47,10 @@ export default function () {
       duration: '12h',
     },
   );
+
+  return events.map((event) => ({
+    ...event,
+    ageRange: parseAgeRange(event.description),
+    registration: parseRegistration(event.description),
+  }));
 }

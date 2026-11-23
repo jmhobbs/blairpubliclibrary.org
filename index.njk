@@ -29,12 +29,25 @@
         <h2>Events</h2>
         <aside>Register for events in person at the front desk or by calling <a href="tel:+14024263617">402-426-3617</a>.</aside>
         <input type="search" placeholder="Filter events…" aria-label="Filter events" />
+        <div class="age-filter" role="group" aria-label="Filter by age">
+          <button type="button" aria-pressed="false" data-age-group="babies" data-age-min="0" data-age-max="3">Babies &amp; toddlers</button>
+          <button type="button" aria-pressed="false" data-age-group="preschool" data-age-min="3" data-age-max="5">Preschool</button>
+          <button type="button" aria-pressed="false" data-age-group="kids" data-age-min="6" data-age-max="12">Kids</button>
+          <button type="button" aria-pressed="false" data-age-group="teens" data-age-min="13" data-age-max="18">Teens</button>
+          <button type="button" aria-pressed="false" data-age-group="adults" data-age-min="19">Adults</button>
+          <button type="button" aria-pressed="false" data-age-group="seniors" data-age-min="55">Seniors</button>
+        </div>
         {% for date, dayEvents in events | groupby('date') %}
         <div class="day">
           <h3>{{ date }}</h3>
           {% for event in dayEvents %}
-          <div class="event">
-            <h4>{{ event.title }}</h4>
+          <div class="event"{% if event.ageRange %} data-age-min="{{ event.ageRange.min }}"{% if event.ageRange.max != null %} data-age-max="{{ event.ageRange.max }}"{% endif %}{% endif %}>
+            <h4>
+              {{ event.title }}
+              {% if event.registration %}
+              <span class="registration registration-{{ event.registration }}">Registration {{ event.registration }}</span>
+              {% endif %}
+            </h4>
             <small>
               {% if event.allDay %}
                 All day
